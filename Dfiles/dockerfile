@@ -1,0 +1,12 @@
+FROM almalinux
+RUN yum install nginx -y
+RUN rm -rf /usr/share/nginx/html/index.html
+WORKDIR /usr/share/nginx/html/
+ADD https://filesamples.com/samples/code/html/sample2.html .
+RUN echo "hellooo world"> hi.html
+CMD ["nginx"]
+ENTRYPOINT [ "-g","daemon off;" ]
+ONBUILD yum install git -y
+        yum install tree -y
+ENV "author"="uday"
+    "course"="k8s"
