@@ -4,8 +4,10 @@ RUN rm -rf /usr/share/nginx/html/index.html
 WORKDIR /usr/share/nginx/html/
 ADD https://filesamples.com/samples/code/html/sample2.html .
 RUN echo "hellooo world"> hi.html
-CMD ["nginx","-g","daemon off;"]
+CMD ["nginx","-g"]
+ENTRYPOINT [ "daemon off;"]
 ONBUILD RUN yum install git -y
         RUN yum install tree -y
 ENV "author"="uday"
+    
     
